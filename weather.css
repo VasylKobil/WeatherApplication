@@ -1,0 +1,88 @@
+* {
+    margin: 0em;
+    padding: 0em;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'montserrat', sans-serif;
+    background-image: url('icons/purple.jpg');
+    background-size: auto;
+    background-position: top center;
+}
+.app-table {
+    display: flexbox;
+    flex-direction: column;
+    min-height: 100%;
+}
+header {
+    text-align: center;
+    padding: 50px 15px 15px;
+    justify-content: center;
+    align-items: center;
+}
+header input {
+    width: 100%;
+    max-width: 240px;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.658);
+    border-radius: 13px 5px;
+    border-bottom: 3px solid #000000;
+
+    text-decoration-color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: 300;
+    transition: 0.2s ease-out;
+
+}
+header input:focus {
+    background-color: rgb(226, 225, 219);
+}
+main {
+    flex: 1 1 100%;
+    padding: 25px 25px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.location .city {
+    color: white;
+    font-size: 55px;
+    font-weight: 500;
+    border: initial;
+    font-style: initial;
+    margin-bottom: 10px;
+}
+.location .date {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.textNoLocation {
+    color: red;
+    font-size: 15px;
+}
+.current .temp {
+    color: white;
+    font-size: 75px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    text-shadow: 3px 4px rgba(0,0,0,0.9);
+}
+.current .weather {
+    color: white;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 30px;
+    text-shadow: 2px 3px rgba(0,0,0,0.9);
+}
+.current .hi-low {
+    color: white;
+    font-size: 30px;
+    margin-top: 30px;
+    text-shadow: 1px 2px  rgba(0,0,0,0.9);
+}
