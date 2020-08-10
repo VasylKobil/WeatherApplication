@@ -6,12 +6,14 @@
 
 body {
     font-family: 'montserrat', sans-serif;
-    background-image: url('icons/purple.jpg');
+    background-image: url('icons/mountain.jpg');
     background-size: auto;
-    background-position: top center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 .app-table {
-    display: flexbox;
+    display: inline-flex;
     flex-direction: column;
     min-height: 100%;
 }
