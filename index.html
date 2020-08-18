@@ -9,7 +9,7 @@
 <body>
     <header>
         <div class="app-table">
-            <input type="text" autocomplete="off" class="search-box"  placeholder="Search your city...">
+            <input type="text" autocomplete="on" id="mainput" class="search-box"  placeholder="Search your city...">
         </div>
     </header>
     <main>
@@ -20,14 +20,20 @@
         </section>
         <div class="current">
             <div class="icon">
-                <img src="icons/unknown.png">
+                <img alt="icon weather" src="icons/unknown.png">
             </div>
             <div class="weather">--</div>
             <div class="temp">--<span>°C</span> </div>
             <div class="hi-low">--°C/--°C</div>
         </div>
     </main>
-    </div>
+    <script>
+        function activatePlacesSearch(){
+            const input = document.getElementById('mainput');
+            const autoComplete = new google.maps.places.Autocomplete(input);
+        }
+    </script>
     <script src="main.js"></script>
+    <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe7tKCTijgC-oqVd078xfwNDc25Ntybl4&libraries=places&callback=activatePlacesSearch"></script>
 </body>
 </html>
