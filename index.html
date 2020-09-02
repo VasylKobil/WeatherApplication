@@ -24,15 +24,13 @@
             </div>
             <div class="weather">--</div>
             <div class="temp">--<span>°C</span> </div>
-            <div class="hi-low">--°C/--°C</div>
+            <div class="tempfeel">Feels like -- °C</div>
+            <div class="speedwind"><span>Wind -- km/h</span></div>
+            <div class="humidity"><span>Humidity -- %</span></div>
+            <div class="visibility"><span>Visibility --</span></div>
+            <div class="pressure"><span>Pressure -- hPa</span></div>
         </div>
     </main>
-    <script>
-        function activatePlacesSearch(){
-            const input = document.getElementById('mainput');
-            const autoComplete = new google.maps.places.Autocomplete(input);
-        }
-    </script>
     <script src="main.js"></script>
     <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe7tKCTijgC-oqVd078xfwNDc25Ntybl4&libraries=places&callback=activatePlacesSearch"></script>
 </body>

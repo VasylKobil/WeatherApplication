@@ -43,7 +43,7 @@ function getResults(query) {
     }).then(displayResults);
 }
 function displayResults(weather) {
-    //console.log(weather);
+    console.log(weather);
     let city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country} `
 
@@ -62,9 +62,21 @@ function displayResults(weather) {
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(weather.main.temp - 273.15 )}<span>°C</span>`;
 
+    let feeltemp = document.querySelector('.current .tempfeel');
+    feeltemp.innerHTML = `<span>Feels like </span>${Math.round(weather.main.feels_like - 273.15)} °C`;
+
     
-    let hilow = document.querySelector('.current .hi-low');
-    hilow.innerHTML = `${Math.round(weather.main.temp_min - 273.15)}<span>°C/</span>${Math.round(weather.main.temp_max - 273.15)}<span>°C</span>`
+    let speedwind = document.querySelector('.current .speedwind');
+    speedwind.innerHTML = `<span>Speed wind </span>${weather.wind.speed} km/h`;
+
+    let visibility = document.querySelector('.current .visibility');
+    visibility.innerHTML = `<span>Visibility </span>${Math.round(weather.visibility / 1000)}<span> km</span>`;
+
+    let humidity = document.querySelector('.current .humidity');
+    humidity.innerHTML = `<span>Humidity </span>${weather.main.humidity} %`;
+
+    let pressure = document.querySelector('.current .pressure');
+    pressure.innerHTML = `<span>Pressure </span>${weather.main.pressure} hPa`;
 
 }
 
@@ -79,3 +91,11 @@ function dateBuilder(d) {
 
     return `${day} ${date} ${month} ${year}`;
 }
+// Search places autocomplete
+function activatePlacesSearch() {
+    const input = document.getElementById('mainput');
+    const autoComplete = new google.maps.places.Autocomplete(input)
+};
+
+
+
