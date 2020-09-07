@@ -43,7 +43,7 @@ function getResults(query) {
     }).then(displayResults);
 }
 function displayResults(weather) {
-    console.log(weather);
+    //console.log(weather);
     let city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country} `
 
@@ -92,10 +92,19 @@ function dateBuilder(d) {
     return `${day} ${date} ${month} ${year}`;
 }
 // Search places autocomplete
-function activatePlacesSearch() {
+ function activatePlacesSearch() {
     const input = document.getElementById('mainput');
-    const autoComplete = new google.maps.places.Autocomplete(input)
+    const autoComplete = new google.maps.places.Autocomplete(input);
+    google.maps.event.addListener(autoComplete, 'place_changed', onPlaceChanged.bind(this, autoComplete));
 };
 
+function onPlaceChanged(autoComplete){
+    const place = autoComplete.getPlace();
+    if (!place.geometry) return;
 
+    const {location} = place.geometry;
+    const lat = location.lat();
+    const lng = location.lng();
 
+    getWeather(lat,lng);
+}
