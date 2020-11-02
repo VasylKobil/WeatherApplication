@@ -7,7 +7,7 @@
 body {
     font-family: 'montserrat', sans-serif;
     background-image: url('icons/mountain.jpg');
-    background-size: auto;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
