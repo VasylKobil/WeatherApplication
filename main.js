@@ -2,6 +2,7 @@ const api = {
     key: "f6f51145b699db7855d36f9027fc0cf1",
     base: "https://api.openweathermap.org/data/2.5/"
 }
+
 const searchbox = document.querySelector('.search-box');
 const notificationElement = document.querySelector('.textNoLocation');
 searchbox.addEventListener('keypress', setQuery);
@@ -33,7 +34,6 @@ function getWeather(latitude, longitude){
     .then(weather => {
         return weather.json();
     }).then(displayResults);
-    console.log();
 }
 
 function getResults(query) {
@@ -43,9 +43,9 @@ function getResults(query) {
     }).then(displayResults);
 }
 function displayResults(weather) {
-    //console.log(weather);
+    console.log(weather);
     let city = document.querySelector('.location .city');
-    city.innerText = `${weather.name}, ${weather.sys.country} `
+    city.innerText = `${weather.name}, ${weather.sys.country}`;
 
     let now = new Date();
     let date = document.querySelector('.location .date');
@@ -78,18 +78,46 @@ function displayResults(weather) {
     let pressure = document.querySelector('.current .pressure');
     pressure.innerHTML = `<span>Pressure </span>${weather.main.pressure} hPa`;
 
+
+
 }
+//time
+
 
 function dateBuilder(d) {
     let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
     let day = days[d.getDay()];
     let date = d.getDate();
     let month = months[d.getMonth()];
     let year = d.getFullYear();
 
-    return `${day} ${date} ${month} ${year}`;
+    //time
+    function checkTime(i) {
+        if (i < 10) {
+            i = "0" + i;
+        }
+        return i;
+    }
+
+    function startTime() {
+        let today = new Date();
+        let h = today.getHours();
+        let m = today.getMinutes();
+        let s = today.getSeconds();
+        // add a zero in front of numbers<10
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+        let time = h + ":" + m + ":" + s;
+        t = setTimeout(function() {
+            startTime()
+        }, 500);
+    }
+    startTime();
+
+    return `${day} ${date} ${month} ${year} `;
 }
 // Search places autocomplete
  function activatePlacesSearch() {
