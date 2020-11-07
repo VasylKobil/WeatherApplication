@@ -92,27 +92,54 @@ main {
 .current {
     color: white;
     font-size: 16px;
+    text-align: center;
 }
+/*ours*/
+.slide {
+    width: 100vw;
+    height: 50px;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 120vw;
+}
+.one {
+    background: #efdefe;
+}
+.two {
+    background: #a3f3d3;
+}
+.three {
+    background: #0bbaa0;
+}
+.four {
+    background: #00dfdf;
+}
+
 .forecast-container {
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
-    display: block;
+    display: flex;
     table-layout: fixed;
-    overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.4);
     margin-top: 10px;
     margin-bottom: 50px;
-
 }
 .forecast-container .forecast {
     display: table-cell;
     border: 1px solid rgba(255, 255, 255, 0.4);
     vertical-align: top; }
 @media screen and (max-width: 990px) {
-    .forecast-container .forecast {
-        display: block;
-        width: 16.6667%;
-        float: left; } }
+    /*.forecast-container .forecast {*/
+    .forecast-container {
+        display: flex;
+        flex-direction: row;
+        float: left;
+        table-layout: fixed;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    } }
 .forecast-container .forecast.today {
     width: 420px; }
 .forecast-container .forecast.today .forecast-header {

@@ -17,38 +17,40 @@
             <div class="textNoLocation"></div>
             <div class="city">City</div>
             <div class="date">--</div>
-            <div id="time"></div>
+            <div id="time">--</div>
 
         </section>
         <div class="current">
             <div class="icon">
                 <img alt="icon weather" src="icons/unknown.png">
             </div>
-
             <div class="weather">--</div>
             <div class="temp">--<span>°C</span> </div>
-            <div class="tempfeel">Feels like -- °C</div>
-            <div class="speedwind"><span>Wind -- km/h</span></div>
-            <div class="humidity"><span>Humidity -- %</span></div>
-            <div class="visibility"><span>Visibility --</span></div>
-            <div class="pressure"><span>Pressure -- hPa</span></div>
+        </div>
+        <div class="outer-wrapper">
+            <div class="wrapper">
+                <div class="slide one"></div>
+                <div class="slide two"></div>
+                <div class="slide three"></div>
+                <div class="slide four"></div>
+            </div>
         </div>
         <div class="forecast-table">
             <div class="container">
                 <div class="forecast-container">
-                    <div class="forecast">
+                    <div class="forecast first-day">
                         <div class="forecast-header">
                             <div class="day">Tue</div>
                         </div> <!-- .forecast-header -->
                         <div class="forecast-content">
                             <div class="forecast-icon">
-                                <img src="icons/01d.png" alt="" width="48">
+                                <img src="icons/unknown.png" alt="" width="48">
                             </div>
-                            <div class="degree">23<sup>o</sup>C</div>
-                            <small>18<sup>o</sup></small>
+                            <div class="degree">--<sup>o</sup>C</div>
+                            <small class="tempFeel">--<sup>o</sup></small>
                         </div>
                     </div>
-                    <div class="forecast">
+                    <div class="forecast second-day">
                         <div class="forecast-header">
                             <div class="day">Wed</div>
                         </div> <!-- .forecast-header -->
@@ -56,11 +58,11 @@
                             <div class="forecast-icon">
                                 <img src="icons/unknown.png" alt="" width="48">
                             </div>
-                            <div class="degree">23<sup>o</sup>C</div>
-                            <small>18<sup>o</sup></small>
+                            <div class="degree">--<sup>o</sup>C</div>
+                            <small class="tempFeel">--<sup>o</sup></small>
                         </div>
                     </div>
-                    <div class="forecast">
+                    <div class="forecast three-day">
                         <div class="forecast-header">
                             <div class="day">Thu</div>
                         </div> <!-- .forecast-header -->
@@ -68,11 +70,11 @@
                             <div class="forecast-icon">
                                 <img src="icons/unknown.png" alt="" width="48">
                             </div>
-                            <div class="degree">23<sup>o</sup>C</div>
-                            <small>18<sup>o</sup></small>
+                            <div class="degree">--<sup>o</sup>C</div>
+                            <small class="tempFeel">--<sup>o</sup></small>
                         </div>
                     </div>
-                    <div class="forecast">
+                    <div class="forecast four-day">
                         <div class="forecast-header">
                             <div class="day">Fri</div>
                         </div> <!-- .forecast-header -->
@@ -80,11 +82,11 @@
                             <div class="forecast-icon">
                                 <img src="icons/unknown.png" alt="" width="48">
                             </div>
-                            <div class="degree">23<sup>o</sup>C</div>
-                            <small>18<sup>o</sup></small>
+                            <div class="degree">--<sup>o</sup>C</div>
+                            <small class="tempFeel">--<sup>o</sup></small>
                         </div>
                     </div>
-                    <div class="forecast">
+                    <div class="forecast five-day">
                         <div class="forecast-header">
                             <div class="day">Sat</div>
                         </div> <!-- .forecast-header -->
@@ -92,11 +94,11 @@
                             <div class="forecast-icon">
                                 <img src="icons/unknown.png" alt="" width="48">
                             </div>
-                            <div class="degree">23<sup>o</sup>C</div>
-                            <small>18<sup>o</sup></small>
+                            <div class="degree">--<sup>o</sup>C</div>
+                            <small class="tempFeel">--<sup>o</sup></small>
                         </div>
                     </div>
-                    <div class="forecast">
+                    <div class="forecast six-day">
                         <div class="forecast-header">
                             <div class="day">Sun</div>
                         </div> <!-- .forecast-header -->
@@ -105,13 +107,32 @@
                                 <img src="icons/unknown.png" alt="icon" width="48">
                             </div>
                             <div class="degree">23<sup>o</sup>C</div>
-                            <small>18<sup>o</sup></small>
+                            <small class="tempFeel">18<sup>o</sup></small>
+                        </div>
+                    </div>
+                    <div class="forecast seven-day">
+                        <div class="forecast-header">
+                            <div class="day">Sun</div>
+                        </div> <!-- .forecast-header -->
+                        <div class="forecast-content">
+                            <div class="forecast-icon">
+                                <img src="icons/unknown.png" alt="icon" width="48">
+                            </div>
+                            <div class="degree">23<sup>o</sup>C</div>
+                            <small class="tempFeel">18<sup>o</sup></small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+    <div class="current">
+        <div class="tempfeel">Feels like -- °C</div>
+        <div class="speedwind"><span>Wind -- km/h</span></div>
+        <div class="humidity"><span>Humidity -- %</span></div>
+        <div class="visibility"><span>Visibility --</span></div>
+        <div class="pressure"><span>Pressure -- hPa</span></div>
+    </div>
     <script src="main.js"></script>
     <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe7tKCTijgC-oqVd078xfwNDc25Ntybl4&libraries=places&callback=activatePlacesSearch"></script>
 </body>
