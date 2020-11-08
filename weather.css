@@ -12,18 +12,21 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
+    margin: 10px 0px;
 }
 .app-table {
     display: inline-flex;
     flex-direction: column;
     min-height: 100%;
 }
+
 header {
     text-align: center;
     padding: 50px 15px 15px;
     justify-content: center;
     align-items: center;
 }
+
 header input {
     width: 100%;
     max-width: 240px;
@@ -45,7 +48,7 @@ header input:focus {
 }
 main {
     flex: 1 1 100%;
-    padding: 25px 5px 5px;
+    padding: 15px 0px 5px;
     display: block;
     flex-direction: column;
     align-items: center;
@@ -101,20 +104,18 @@ main {
     background: rgba(0, 0, 0, 0.5);
     display: inline-table;
     table-layout: fixed;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     margin-top: 10px;
-    margin-bottom: 10px;
 }
 .forecast-container .forecast {
     display: table-cell;
-    border: 1px solid rgba(255, 255, 255, 0.4);
     vertical-align: top; }
 @media screen and (max-width: 990px) {
     /*.forecast-container .forecast {*/
     .forecast-container {
         display: flex;
         flex-direction: row;
-        float: left;
         table-layout: fixed;
         overflow-x: scroll;
         overflow-y: hidden;
@@ -173,7 +174,8 @@ main {
     padding: 50px 20px 20px;
     text-align: center; }
 .forecast-container .forecast .forecast-content .forecast-icon {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+}
 .forecast-container .forecast .forecast-content .degree {
     font-size: 1.5em;
     color: white;
@@ -182,5 +184,61 @@ main {
     font-size: 1.2em;
     color: white;
 }
+@media screen and (max-width: 480px) {
+    .forecast-container .forecast .forecast-content {
+        padding: 10px 5px 10px;
+        text-align: center;
+    }
+    .forecast-container .forecast .forecast-header {
+        padding: 5px;
+    }
+    .forecast-container .forecast .forecast-content .forecast-icon {
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+}
+.forecast-days {
+    display: block;
+    color: white;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.days-header {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.5);
+}
+.forecast-days .days-header .body-one {
+
+}
+.forecast-days .days-header .body-one .day {
+     padding-left: 10px;
+     padding-top: 10px;
+     font-size: 1.5em;
+ }
+.forecast-days .days-header .body-two {
+    padding-right: 10px;
+}
+.forecast-days .days-header .body-two .icon {
+     padding-right: 30px;
+ }
+.forecast-days .days-header .body-three {
+    padding-right: 10px;
+    display: flex;
+}
+
+.forecast-days .days-header .body-three .temp-day {
+    padding-right: 10px;
+    padding-top: 5px;
+    font-size: 1.5em;
+}
+.forecast-days .days-header .body-three .temp-night {
+    padding-top: 5px;
+    font-size: 1.5em;
+    color: lightslategrey;
+}
+
+
 
 
