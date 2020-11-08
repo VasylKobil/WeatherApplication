@@ -46,7 +46,7 @@ header input:focus {
 main {
     flex: 1 1 100%;
     padding: 25px 5px 5px;
-    display: flex;
+    display: block;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -94,37 +94,16 @@ main {
     font-size: 16px;
     text-align: center;
 }
-/*ours*/
-.slide {
-    width: 100vw;
-    height: 50px;
-}
-.wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 120vw;
-}
-.one {
-    background: #efdefe;
-}
-.two {
-    background: #a3f3d3;
-}
-.three {
-    background: #0bbaa0;
-}
-.four {
-    background: #00dfdf;
-}
+
 
 .forecast-container {
     width: 100%;
     background: rgba(0, 0, 0, 0.5);
-    display: flex;
+    display: inline-table;
     table-layout: fixed;
     border: 1px solid rgba(255, 255, 255, 0.4);
     margin-top: 10px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 .forecast-container .forecast {
     display: table-cell;
@@ -186,7 +165,6 @@ main {
     color: white;
     text-align: center;
     font-weight: 400;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
 .forecast-container .forecast .forecast-icon {
     height: 50px;
