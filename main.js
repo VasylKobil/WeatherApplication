@@ -65,22 +65,6 @@ function displayResults(weather) {
 
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(weather.main.temp - 273.15 )}<span>°C</span>`;
-
-    let feeltemp = document.querySelector('.current .tempfeel');
-    feeltemp.innerHTML = `<span>Feels like </span>${Math.round(weather.main.feels_like - 273.15)} °C`;
-
-    
-    let speedwind = document.querySelector('.current .speedwind');
-    speedwind.innerHTML = `<span>Speed wind </span>${weather.wind.speed} km/h`;
-
-    let visibility = document.querySelector('.current .visibility');
-    visibility.innerHTML = `<span>Visibility </span>${Math.round(weather.visibility / 1000)}<span> km</span>`;
-
-    let humidity = document.querySelector('.current .humidity');
-    humidity.innerHTML = `<span>Humidity </span>${weather.main.humidity} %`;
-
-    let pressure = document.querySelector('.current .pressure');
-    pressure.innerHTML = `<span>Pressure </span>${weather.main.pressure} hPa`;
 }
 //time
 function checkTime(i) {
@@ -123,6 +107,15 @@ function convertTime(event){
     let convertHour = date.getHours();
     convertHour = checkTime(convertHour);
     return `${convertHour}`;
+}
+//convert alltime a Unix timestamp
+function convertAllTime(event){
+    let date = new Date(event * 1000);
+    let convertHour = date.getHours();
+    let convertMin = date.getMinutes();
+    convertHour = checkTime(convertHour);
+    convertMin = checkTime(convertMin);
+    return `${convertHour}:${convertMin}`;
 }
 
 //Function for days Forecast
@@ -490,4 +483,32 @@ function displayResultsDaily(weather) {
 
     let tempNight7day = document.querySelector('.plusday7 .temp-night');
     tempNight7day.innerHTML = `${Math.round(weather.daily[7].temp.night)}<sup>o</sup>`;
+
+    //Additional information
+
+
+    let sunrise = document.querySelector('.additionalInf .sunr_time');
+    sunrise.innerHTML = convertAllTime(weather.current.sunrise);
+
+    let sunset = document.querySelector('.additionalInf .suns_time');
+    sunset.innerHTML = convertAllTime(weather.current.sunset);
+
+    let speedwind = document.querySelector('.additionalInf .wind_speed');
+    speedwind.innerHTML = `${weather.current.wind_speed} km/h`;
+
+    let feeltemp = document.querySelector('.additionalInf .feels_like');
+    feeltemp.innerHTML = `${Math.round(weather.current.feels_like)} °C`;
+
+    let humidity = document.querySelector('.additionalInf .value_hum');
+    humidity.innerHTML = `${weather.current.humidity} %`;
+
+    let pressure = document.querySelector('.additionalInf .value_press');
+    pressure.innerHTML = `${weather.current.pressure} hPa`;
+
+    let visibility = document.querySelector('.additionalInf .value_visi');
+    visibility.innerHTML = `${Math.round(weather.current.visibility / 1000)}<span> km</span>`;
+
+    let uvIndex = document.querySelector('.additionalInf .value_index');
+    uvIndex.innerHTML = `${Math.round(weather.current.uvi)}`;
+
 }
