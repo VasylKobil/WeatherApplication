@@ -1,0 +1,268 @@
+html{
+    font-size: 12px;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'montserrat', sans-serif;
+    background-image: url('icons/mountain.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 10px 0px;
+}
+.app-table {
+    display: inline-flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+header {
+    text-align: center;
+    padding: 50px 15px 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+header input {
+    width: 100%;
+    max-width: 240px;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.658);
+    border-radius: 13px 5px;
+    border-bottom: 3px solid #000000;
+    text-decoration-color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: 300;
+    transition: 0.2s ease-out;
+
+}
+header input:focus {
+    background-color: rgb(226, 225, 219);
+}
+main {
+    flex: 1 1 100%;
+    padding: 15px 0px 5px;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.location .city {
+    color: white;
+    font-size: 55px;
+    font-weight: 500;
+    border: initial;
+    font-style: initial;
+    margin-bottom: 10px;
+}
+.location .date {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.textNoLocation {
+    color: red;
+    font-size: 15px;
+}
+.current .temp {
+    color: white;
+    font-size: 75px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 40px;
+    text-shadow: 3px 4px rgba(0,0,0,0.9);
+}
+.current .weather {
+    color: white;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 30px;
+    text-shadow: 2px 3px rgba(0,0,0,0.9);
+}
+.current .hi-low {
+    color: white;
+    font-size: 30px;
+    margin-top: 30px;
+    text-shadow: 1px 2px  rgba(0,0,0,0.9);
+}
+.forecast-container {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: inline-table;
+    table-layout: fixed;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    margin-top: 10px;
+}
+.forecast-container .forecast {
+    display: table-cell;
+    vertical-align: top; }
+@media screen and (max-width: 990px) {
+    .forecast-container {
+        display: flex;
+        flex-direction: row;
+        table-layout: fixed;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .additionalInf{
+
+    }
+}
+.forecast-container .forecast.today {
+    width: 420px; }
+.forecast-container .forecast.today .forecast-header {
+    *zoom: 1;
+}
+.forecast-container .forecast.today .forecast-header:after {
+    content: " ";
+    clear: both;
+    display: block;
+    overflow: hidden;
+    height: 0; }
+.forecast-container .forecast.today .forecast-header .day {
+    float: left;
+    color: white;
+}
+.forecast-container .forecast.today .forecast-header .date {
+    float: right; }
+.forecast-container .forecast.today .forecast-content {
+    text-align: left;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.forecast-container .forecast.today .location {
+    font-size: 1.3em;
+    font-weight: 400; }
+.forecast-container .forecast.today .degree .num, .forecast-container .forecast.today .degree .forecast-icon {
+    display: inline-block;
+    vertical-align: middle; }
+.forecast-container .forecast.today .degree .num {
+    font-size: 6.5rem;
+    margin-right: 5px; }
+.forecast-container .forecast.today span {
+    margin-right: 20px; }
+.forecast-container .forecast.today span img {
+    margin-right: 5px;
+    vertical-align: middle; }
+@media screen and (max-width: 990px) {
+    .forecast-container .forecast.today {
+        display: block;
+        width: 300px;
+    }
+}
+.forecast-container .forecast .forecast-header {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    color: white;
+    text-align: center;
+    font-weight: 400;
+}
+.forecast-container .forecast .forecast-icon {
+    height: 50px;
+}
+.forecast-container .forecast .forecast-content {
+    padding: 50px 20px 20px;
+    text-align: center; }
+.forecast-container .forecast .forecast-content .forecast-icon {
+    margin-bottom: 20px;
+}
+.forecast-container .forecast .forecast-content .degree {
+    font-size: 1.5em;
+    color: white;
+    font-weight: 700; }
+.forecast-container .forecast .forecast-content small {
+    font-size: 1.2em;
+    color: white;
+}
+@media screen and (max-width: 480px) {
+    .forecast-container .forecast .forecast-content {
+        padding: 10px 5px 10px;
+        text-align: center;
+    }
+    .forecast-container .forecast .forecast-header {
+        padding: 5px;
+    }
+    .forecast-container .forecast .forecast-content .forecast-icon {
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+}
+.forecast-days {
+    display: block;
+    color: white;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+.days-header {
+    display: inline-flex;
+    width: 100%;
+    height: 45px;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.5);
+}
+.forecast-days .days-header .body-one .day {
+     padding-left: 10px;
+     padding-top: 10px;
+     font-size: 1.5em;
+    position: absolute;
+ }
+.forecast-days .days-header .body-two .icon {
+    padding-left: 65px;
+ }
+.forecast-days .days-header .body-three {
+    padding-right: 10px;
+    display: flex;
+}
+
+.forecast-days .days-header .body-three .temp-day {
+    padding-right: 10px;
+    padding-top: 5px;
+    font-size: 1.5em;
+}
+.forecast-days .days-header .body-three .temp-night {
+    padding-top: 5px;
+    font-size: 1.5em;
+    color: lightslategrey;
+}
+/*Addition information*/
+
+.additionalInf {
+    width: 100vw;
+}
+.additionalInf .content {
+    padding: 0px 10px 0px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    justify-content: space-between;
+}
+.additionalInf .content .cont_first{
+    justify-content: left;
+    padding-left: 20px;
+}
+.additionalInf .content .cont_first :first-child{
+    color: darkgray;
+}
+.additionalInf .content .cont_first :nth-last-child(odd){
+    color: white;
+    font-size: 25px;
+}
+.additionalInf .content .cont_second{
+    padding-right: 20px;
+    width: 130px;
+}
+.additionalInf .content .cont_second :first-child{
+    color: darkgray;
+}
+.additionalInf .content .cont_second :nth-last-child(odd){
+    color: white;
+    font-size: 25px;
+}
+
+
