@@ -19,6 +19,7 @@ function getResults(query) {
         .then(weather => {
             return weather.json();
         }).then(displayResults);
+
 }
 
 if('geolocation' in navigator){
@@ -46,8 +47,30 @@ function getWeatherCurrent(latitude, longitude){
     }).then(displayResults);
 }
 
+
 function displayResults(weather) {
     // console.log(weather);
+    let main = weather.weather[0].main;
+    if(main == "Rain" ){
+        document.body.style.backgroundImage = "url('assets/backgroundImg/rain.jpg')";
+    }else if(main == "Clear" ){
+        document.body.style.backgroundImage = "url('assets/backgroundImg/clear.jpg')";
+    }else if(main == "Clear" && weather.main.temp - 273.15 < 0){
+        document.body.style.backgroundImage = "url('assets/backgroundImg/winter.jpg')";
+    }else if(main == "Clouds" ){
+        document.body.style.backgroundImage = "url('assets/backgroundImg/clouds.jpg')";
+    }else if(main == "Snow" || weather.main.temp - 273.15 < 0 ){
+        document.body.style.backgroundImage = "url('assets/backgroundImg/winter.jpg')";
+    }else if(main == "Thunderstorm" ){
+        document.body.style.backgroundImage = "url('assets/backgroundImg/storm.jpg')";
+    }else if(main == "Drizzle" || main == "Mist" || main == "Smoke" || main == "Haze" || main == "Dust" || main == "Fog" || main == "Sand" || main == "Dust" || main == "Ash" || main == "Squall"){
+        document.body.style.backgroundImage = "url('assets/backgroundImg/drizzle.jpg')";
+    }else if(main == "Tornado" ){
+        document.body.style.backgroundImage = "url('assets/backgroundImg/tornado.jpg')";
+    }else{
+        document.body.style.backgroundImage = "url('assets/backgroundImg/mountain.jpg')";
+    }
+
     let city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
 
@@ -57,7 +80,7 @@ function displayResults(weather) {
 
     let icon = weather.weather[0].icon;
     let iconElement = document.querySelector('.icon');
-    iconElement.innerHTML = `<img src="icons/${icon}.png"/>`;
+    iconElement.innerHTML = `<img src="assets/icons/${icon}.png"/>`;
 
 
     let weather_el = document.querySelector('.current .weather');
@@ -152,11 +175,11 @@ function getWeatherDaily(latitude, longitude) {
         }).then(displayResultsDaily);
 }
 function displayResultsDaily(weather) {
-    console.log(weather);
+    // console.log(weather);
     //hourly
     //now
     let iconNow = document.querySelector('.now .forecast-content .forecast-icon');
-    iconNow.innerHTML = `<img src="icons/${weather.hourly[0].weather[0].icon}.png" alt="" width="38">`;
+    iconNow.innerHTML = `<img src="assets/icons/${weather.hourly[0].weather[0].icon}.png" alt="" width="38">`;
 
     let tempNow = document.querySelector('.now .forecast-content .degree');
     tempNow.innerHTML = `${Math.round(weather.hourly[0].temp)}<sup>o</sup>`;
@@ -165,7 +188,7 @@ function displayResultsDaily(weather) {
     placeTime1.innerHTML = convertTime(weather.hourly[1].dt);
 
     let iconPlus1 = document.querySelector('.plus1 .forecast-content .forecast-icon');
-    iconPlus1.innerHTML = `<img src="icons/${weather.hourly[1].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus1.innerHTML = `<img src="assets/icons/${weather.hourly[1].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus1 = document.querySelector('.plus1 .forecast-content .degree');
     tempPlus1.innerHTML = `${Math.round(weather.hourly[1].temp)}<sup>o</sup>`;
@@ -174,7 +197,7 @@ function displayResultsDaily(weather) {
     placeTime2.innerHTML = convertTime(weather.hourly[2].dt);
 
     let iconPlus2 = document.querySelector('.plus2 .forecast-content .forecast-icon');
-    iconPlus2.innerHTML = `<img src="icons/${weather.hourly[2].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus2.innerHTML = `<img src="assets/icons/${weather.hourly[2].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus2 = document.querySelector('.plus2 .forecast-content .degree');
     tempPlus2.innerHTML = `${Math.round(weather.hourly[2].temp)}<sup>o</sup>`;
@@ -183,7 +206,7 @@ function displayResultsDaily(weather) {
     placeTime3.innerHTML = convertTime(weather.hourly[3].dt);
 
     let iconPlus3 = document.querySelector('.plus3 .forecast-content .forecast-icon');
-    iconPlus3.innerHTML = `<img src="icons/${weather.hourly[3].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus3.innerHTML = `<img src="assets/icons/${weather.hourly[3].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus3 = document.querySelector('.plus3 .forecast-content .degree');
     tempPlus3.innerHTML = `${Math.round(weather.hourly[3].temp)}<sup>o</sup>`;
@@ -192,7 +215,7 @@ function displayResultsDaily(weather) {
     placeTime4.innerHTML = convertTime(weather.hourly[4].dt);
 
     let iconPlus4 = document.querySelector('.plus4 .forecast-content .forecast-icon');
-    iconPlus4.innerHTML = `<img src="icons/${weather.hourly[4].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus4.innerHTML = `<img src="assets/icons/${weather.hourly[4].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus4 = document.querySelector('.plus4 .forecast-content .degree');
     tempPlus4.innerHTML = `${Math.round(weather.hourly[4].temp)}<sup>o</sup>`;
@@ -201,7 +224,7 @@ function displayResultsDaily(weather) {
     placeTime5.innerHTML = convertTime(weather.hourly[5].dt);
 
     let iconPlus5 = document.querySelector('.plus5 .forecast-content .forecast-icon');
-    iconPlus5.innerHTML = `<img src="icons/${weather.hourly[5].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus5.innerHTML = `<img src="assets/icons/${weather.hourly[5].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus5 = document.querySelector('.plus5 .forecast-content .degree');
     tempPlus5.innerHTML = `${Math.round(weather.hourly[5].temp)}<sup>o</sup>`;
@@ -210,7 +233,7 @@ function displayResultsDaily(weather) {
     placeTime6.innerHTML = convertTime(weather.hourly[6].dt);
 
     let iconPlus6 = document.querySelector('.plus6 .forecast-content .forecast-icon');
-    iconPlus6.innerHTML = `<img src="icons/${weather.hourly[6].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus6.innerHTML = `<img src="assets/icons/${weather.hourly[6].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus6 = document.querySelector('.plus6 .forecast-content .degree');
     tempPlus6.innerHTML = `${Math.round(weather.hourly[6].temp)}<sup>o</sup>`;
@@ -219,7 +242,7 @@ function displayResultsDaily(weather) {
     placeTime7.innerHTML = convertTime(weather.hourly[7].dt);
 
     let iconPlus7 = document.querySelector('.plus7 .forecast-content .forecast-icon');
-    iconPlus7.innerHTML = `<img src="icons/${weather.hourly[7].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus7.innerHTML = `<img src="assets/icons/${weather.hourly[7].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus7 = document.querySelector('.plus7 .forecast-content .degree');
     tempPlus7.innerHTML = `${Math.round(weather.hourly[7].temp)}<sup>o</sup>`;
@@ -228,7 +251,7 @@ function displayResultsDaily(weather) {
     placeTime8.innerHTML = convertTime(weather.hourly[8].dt);
 
     let iconPlus8 = document.querySelector('.plus8 .forecast-content .forecast-icon');
-    iconPlus8.innerHTML = `<img src="icons/${weather.hourly[8].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus8.innerHTML = `<img src="assets/icons/${weather.hourly[8].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus8 = document.querySelector('.plus8 .forecast-content .degree');
     tempPlus8.innerHTML = `${Math.round(weather.hourly[8].temp)}<sup>o</sup>`;
@@ -237,7 +260,7 @@ function displayResultsDaily(weather) {
     placeTime9.innerHTML = convertTime(weather.hourly[9].dt);
 
     let iconPlus9 = document.querySelector('.plus9 .forecast-content .forecast-icon');
-    iconPlus9.innerHTML = `<img src="icons/${weather.hourly[9].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus9.innerHTML = `<img src="assets/icons/${weather.hourly[9].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus9 = document.querySelector('.plus9 .forecast-content .degree');
     tempPlus9.innerHTML = `${Math.round(weather.hourly[9].temp)}<sup>o</sup>`;
@@ -246,7 +269,7 @@ function displayResultsDaily(weather) {
     placeTime10.innerHTML = convertTime(weather.hourly[10].dt);
 
     let iconPlus10 = document.querySelector('.plus10 .forecast-content .forecast-icon');
-    iconPlus10.innerHTML = `<img src="icons/${weather.hourly[10].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus10.innerHTML = `<img src="assets/icons/${weather.hourly[10].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus10 = document.querySelector('.plus10 .forecast-content .degree');
     tempPlus10.innerHTML = `${Math.round(weather.hourly[10].temp)}<sup>o</sup>`;
@@ -255,7 +278,7 @@ function displayResultsDaily(weather) {
     placeTime11.innerHTML = convertTime(weather.hourly[11].dt);
 
     let iconPlus11 = document.querySelector('.plus11 .forecast-content .forecast-icon');
-    iconPlus11.innerHTML = `<img src="icons/${weather.hourly[11].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus11.innerHTML = `<img src="assets/icons/${weather.hourly[11].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus11 = document.querySelector('.plus11 .forecast-content .degree');
     tempPlus11.innerHTML = `${Math.round(weather.hourly[11].temp)}<sup>o</sup>`;
@@ -264,7 +287,7 @@ function displayResultsDaily(weather) {
     placeTime12.innerHTML = convertTime(weather.hourly[12].dt);
 
     let iconPlus12 = document.querySelector('.plus12 .forecast-content .forecast-icon');
-    iconPlus12.innerHTML = `<img src="icons/${weather.hourly[12].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus12.innerHTML = `<img src="assets/icons/${weather.hourly[12].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus12 = document.querySelector('.plus12 .forecast-content .degree');
     tempPlus12.innerHTML = `${Math.round(weather.hourly[12].temp)}<sup>o</sup>`;
@@ -273,7 +296,7 @@ function displayResultsDaily(weather) {
     placeTime13.innerHTML = convertTime(weather.hourly[13].dt);
 
     let iconPlus13 = document.querySelector('.plus13 .forecast-content .forecast-icon');
-    iconPlus13.innerHTML = `<img src="icons/${weather.hourly[13].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus13.innerHTML = `<img src="assets/icons/${weather.hourly[13].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus13 = document.querySelector('.plus13 .forecast-content .degree');
     tempPlus13.innerHTML = `${Math.round(weather.hourly[13].temp)}<sup>o</sup>`;
@@ -282,7 +305,7 @@ function displayResultsDaily(weather) {
     placeTime14.innerHTML = convertTime(weather.hourly[14].dt);
 
     let iconPlus14 = document.querySelector('.plus14 .forecast-content .forecast-icon');
-    iconPlus14.innerHTML = `<img src="icons/${weather.hourly[14].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus14.innerHTML = `<img src="assets/icons/${weather.hourly[14].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus14 = document.querySelector('.plus14 .forecast-content .degree');
     tempPlus14.innerHTML = `${Math.round(weather.hourly[14].temp)}<sup>o</sup>`;
@@ -291,7 +314,7 @@ function displayResultsDaily(weather) {
     placeTime15.innerHTML = convertTime(weather.hourly[15].dt);
 
     let iconPlus15 = document.querySelector('.plus15 .forecast-content .forecast-icon');
-    iconPlus15.innerHTML = `<img src="icons/${weather.hourly[15].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus15.innerHTML = `<img src="assets/icons/${weather.hourly[15].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus15 = document.querySelector('.plus15 .forecast-content .degree');
     tempPlus15.innerHTML = `${Math.round(weather.hourly[15].temp)}<sup>o</sup>`;
@@ -300,7 +323,7 @@ function displayResultsDaily(weather) {
     placeTime16.innerHTML = convertTime(weather.hourly[16].dt);
 
     let iconPlus16 = document.querySelector('.plus16 .forecast-content .forecast-icon');
-    iconPlus16.innerHTML = `<img src="icons/${weather.hourly[16].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus16.innerHTML = `<img src="assets/icons/${weather.hourly[16].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus16 = document.querySelector('.plus16 .forecast-content .degree');
     tempPlus16.innerHTML = `${Math.round(weather.hourly[16].temp)}<sup>o</sup>`;
@@ -309,7 +332,7 @@ function displayResultsDaily(weather) {
     placeTime17.innerHTML = convertTime(weather.hourly[17].dt);
 
     let iconPlus17 = document.querySelector('.plus17 .forecast-content .forecast-icon');
-    iconPlus17.innerHTML = `<img src="icons/${weather.hourly[17].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus17.innerHTML = `<img src="assets/icons/${weather.hourly[17].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus17 = document.querySelector('.plus17 .forecast-content .degree');
     tempPlus17.innerHTML = `${Math.round(weather.hourly[17].temp)}<sup>o</sup>`;
@@ -318,7 +341,7 @@ function displayResultsDaily(weather) {
     placeTime18.innerHTML = convertTime(weather.hourly[18].dt);
 
     let iconPlus18 = document.querySelector('.plus18 .forecast-content .forecast-icon');
-    iconPlus18.innerHTML = `<img src="icons/${weather.hourly[18].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus18.innerHTML = `<img src="assets/icons/${weather.hourly[18].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus18 = document.querySelector('.plus18 .forecast-content .degree');
     tempPlus18.innerHTML = `${Math.round(weather.hourly[18].temp)}<sup>o</sup>`;
@@ -327,7 +350,7 @@ function displayResultsDaily(weather) {
     placeTime19.innerHTML = convertTime(weather.hourly[19].dt);
 
     let iconPlus19 = document.querySelector('.plus19 .forecast-content .forecast-icon');
-    iconPlus19.innerHTML = `<img src="icons/${weather.hourly[19].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus19.innerHTML = `<img src="assets/icons/${weather.hourly[19].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus19 = document.querySelector('.plus19 .forecast-content .degree');
     tempPlus19.innerHTML = `${Math.round(weather.hourly[19].temp)}<sup>o</sup>`;
@@ -336,7 +359,7 @@ function displayResultsDaily(weather) {
     placeTime20.innerHTML = convertTime(weather.hourly[20].dt);
 
     let iconPlus20 = document.querySelector('.plus20 .forecast-content .forecast-icon');
-    iconPlus20.innerHTML = `<img src="icons/${weather.hourly[20].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus20.innerHTML = `<img src="assets/icons/${weather.hourly[20].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus20 = document.querySelector('.plus20 .forecast-content .degree');
     tempPlus20.innerHTML = `${Math.round(weather.hourly[20].temp)}<sup>o</sup>`;
@@ -345,7 +368,7 @@ function displayResultsDaily(weather) {
     placeTime21.innerHTML = convertTime(weather.hourly[21].dt);
 
     let iconPlus21 = document.querySelector('.plus21 .forecast-content .forecast-icon');
-    iconPlus21.innerHTML = `<img src="icons/${weather.hourly[21].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus21.innerHTML = `<img src="assets/icons/${weather.hourly[21].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus21 = document.querySelector('.plus21 .forecast-content .degree');
     tempPlus21.innerHTML = `${Math.round(weather.hourly[21].temp)}<sup>o</sup>`;
@@ -354,7 +377,7 @@ function displayResultsDaily(weather) {
     placeTime22.innerHTML = convertTime(weather.hourly[22].dt);
 
     let iconPlus22 = document.querySelector('.plus22 .forecast-content .forecast-icon');
-    iconPlus22.innerHTML = `<img src="icons/${weather.hourly[22].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus22.innerHTML = `<img src="assets/icons/${weather.hourly[22].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus22 = document.querySelector('.plus22 .forecast-content .degree');
     tempPlus22.innerHTML = `${Math.round(weather.hourly[22].temp)}<sup>o</sup>`;
@@ -363,7 +386,7 @@ function displayResultsDaily(weather) {
     placeTime23.innerHTML = convertTime(weather.hourly[23].dt);
 
     let iconPlus23 = document.querySelector('.plus23 .forecast-content .forecast-icon');
-    iconPlus23.innerHTML = `<img src="icons/${weather.hourly[23].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus23.innerHTML = `<img src="assets/icons/${weather.hourly[23].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus23 = document.querySelector('.plus23 .forecast-content .degree');
     tempPlus23.innerHTML = `${Math.round(weather.hourly[23].temp)}<sup>o</sup>`;
@@ -372,7 +395,7 @@ function displayResultsDaily(weather) {
     placeTime24.innerHTML = convertTime(weather.hourly[24].dt);
 
     let iconPlus24 = document.querySelector('.plus24 .forecast-content .forecast-icon');
-    iconPlus24.innerHTML = `<img src="icons/${weather.hourly[24].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus24.innerHTML = `<img src="assets/icons/${weather.hourly[24].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus24 = document.querySelector('.plus24 .forecast-content .degree');
     tempPlus24.innerHTML = `${Math.round(weather.hourly[24].temp)}<sup>o</sup>`;
@@ -381,7 +404,7 @@ function displayResultsDaily(weather) {
     placeTime25.innerHTML = convertTime(weather.hourly[25].dt);
 
     let iconPlus25 = document.querySelector('.plus25 .forecast-content .forecast-icon');
-    iconPlus25.innerHTML = `<img src="icons/${weather.hourly[25].weather[0].icon}.png" alt="" width="38">`;
+    iconPlus25.innerHTML = `<img src="assets/icons/${weather.hourly[25].weather[0].icon}.png" alt="" width="38">`;
 
     let tempPlus25 = document.querySelector('.plus25 .forecast-content .degree');
     tempPlus25.innerHTML = `${Math.round(weather.hourly[25].temp)}<sup>o</sup>`;
@@ -393,7 +416,7 @@ function displayResultsDaily(weather) {
     day1.innerHTML = day1con;
 
     let icon1Day = document.querySelector('.plusday1 .icon');
-    icon1Day.innerHTML = `<img src="icons/${weather.daily[1].weather[0].icon}.png" alt="" width="38">`;
+    icon1Day.innerHTML = `<img src="assets/icons/${weather.daily[1].weather[0].icon}.png" alt="" width="38">`;
 
     let temp1day = document.querySelector('.plusday1 .temp-day');
     temp1day.innerHTML = `${Math.round(weather.daily[1].temp.day)}<sup>o</sup>`;
@@ -406,7 +429,7 @@ function displayResultsDaily(weather) {
     day2.innerHTML = day2con;
 
     let icon2Day = document.querySelector('.plusday2 .icon');
-    icon2Day.innerHTML = `<img src="icons/${weather.daily[2].weather[0].icon}.png" alt="" width="38">`;
+    icon2Day.innerHTML = `<img src="assets/icons/${weather.daily[2].weather[0].icon}.png" alt="" width="38">`;
 
     let temp2day = document.querySelector('.plusday2 .temp-day');
     temp2day.innerHTML = `${Math.round(weather.daily[2].temp.day)}<sup>o</sup>`;
@@ -420,7 +443,7 @@ function displayResultsDaily(weather) {
     day3.innerHTML = day3con;
 
     let icon3Day = document.querySelector('.plusday3 .icon');
-    icon3Day.innerHTML = `<img src="icons/${weather.daily[3].weather[0].icon}.png" alt="" width="38">`;
+    icon3Day.innerHTML = `<img src="assets/icons/${weather.daily[3].weather[0].icon}.png" alt="" width="38">`;
 
     let temp3day = document.querySelector('.plusday3 .temp-day');
     temp3day.innerHTML = `${Math.round(weather.daily[3].temp.day)}<sup>o</sup>`;
@@ -434,7 +457,7 @@ function displayResultsDaily(weather) {
     day4.innerHTML = day4con;
 
     let icon4Day = document.querySelector('.plusday4 .icon');
-    icon4Day.innerHTML = `<img src="icons/${weather.daily[4].weather[0].icon}.png" alt="" width="38">`;
+    icon4Day.innerHTML = `<img src="assets/icons/${weather.daily[4].weather[0].icon}.png" alt="" width="38">`;
 
     let temp4day = document.querySelector('.plusday4 .temp-day');
     temp4day.innerHTML = `${Math.round(weather.daily[4].temp.day)}<sup>o</sup>`;
@@ -448,7 +471,7 @@ function displayResultsDaily(weather) {
     day5.innerHTML = day5con;
 
     let icon5Day = document.querySelector('.plusday5 .icon');
-    icon5Day.innerHTML = `<img src="icons/${weather.daily[5].weather[0].icon}.png" alt="" width="38">`;
+    icon5Day.innerHTML = `<img src="assets/icons/${weather.daily[5].weather[0].icon}.png" alt="" width="38">`;
 
     let temp5day = document.querySelector('.plusday5 .temp-day');
     temp5day.innerHTML = `${Math.round(weather.daily[5].temp.day)}<sup>o</sup>`;
@@ -462,7 +485,7 @@ function displayResultsDaily(weather) {
     day6.innerHTML = day6con;
 
     let icon6Day = document.querySelector('.plusday6 .icon');
-    icon6Day.innerHTML = `<img src="icons/${weather.daily[6].weather[0].icon}.png" alt="" width="38">`;
+    icon6Day.innerHTML = `<img src="assets/icons/${weather.daily[6].weather[0].icon}.png" alt="" width="38">`;
 
     let temp6day = document.querySelector('.plusday6 .temp-day');
     temp6day.innerHTML = `${Math.round(weather.daily[6].temp.day)}<sup>o</sup>`;
@@ -476,7 +499,7 @@ function displayResultsDaily(weather) {
     day7.innerHTML = day7con;
 
     let icon7Day = document.querySelector('.plusday7 .icon');
-    icon7Day.innerHTML = `<img src="icons/${weather.daily[7].weather[0].icon}.png" alt="" width="38">`;
+    icon7Day.innerHTML = `<img src="assets/icons/${weather.daily[7].weather[0].icon}.png" alt="" width="38">`;
 
     let temp7day = document.querySelector('.plusday7 .temp-day');
     temp7day.innerHTML = `${Math.round(weather.daily[7].temp.day)}<sup>o</sup>`;
