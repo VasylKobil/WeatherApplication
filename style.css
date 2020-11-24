@@ -7,7 +7,7 @@ html{
 
 body {
     font-family: 'montserrat', sans-serif;
-    background-size: 100vw 100vh;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -212,9 +212,13 @@ main {
      font-size: 1.5em;
     position: absolute;
  }
-.forecast-days .days-header .body-two .icon {
-    padding-left: 65px;
+.forecast-days .days-header .body-two {
+    padding-left: 50px;
  }
+.forecast-days .days-header .body-two .icon img{
+    position: absolute;
+    text-align: center;
+}
 .forecast-days .days-header .body-three {
     padding-right: 10px;
     display: flex;
@@ -224,11 +228,13 @@ main {
     padding-right: 10px;
     padding-top: 5px;
     font-size: 1.5em;
+    width: 35px;
 }
 .forecast-days .days-header .body-three .temp-night {
     padding-top: 5px;
     font-size: 1.5em;
     color: lightslategrey;
+    width: 35px;
 }
 /*Addition information*/
 
