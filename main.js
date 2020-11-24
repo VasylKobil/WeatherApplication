@@ -51,15 +51,14 @@ function getWeatherCurrent(latitude, longitude){
 function displayResults(weather) {
     // console.log(weather);
     let main = weather.weather[0].main;
-    if(main == "Rain" ){
+    let temp = weather.main.temp - 273.15;
+    if(main == "Rain"){
         document.body.style.backgroundImage = "url('assets/backgroundImg/rain.jpg')";
     }else if(main == "Clear" ){
         document.body.style.backgroundImage = "url('assets/backgroundImg/clear.jpg')";
-    }else if(main == "Clear" && weather.main.temp - 273.15 < 0){
-        document.body.style.backgroundImage = "url('assets/backgroundImg/winter.jpg')";
     }else if(main == "Clouds" ){
         document.body.style.backgroundImage = "url('assets/backgroundImg/clouds.jpg')";
-    }else if(main == "Snow" || weather.main.temp - 273.15 < 0 ){
+    }else if((main == "Snow" || temp < 0) || temp < 0){
         document.body.style.backgroundImage = "url('assets/backgroundImg/winter.jpg')";
     }else if(main == "Thunderstorm" ){
         document.body.style.backgroundImage = "url('assets/backgroundImg/storm.jpg')";
@@ -86,8 +85,8 @@ function displayResults(weather) {
     let weather_el = document.querySelector('.current .weather');
     weather_el.innerText = weather.weather[0].main;
 
-    let temp = document.querySelector('.current .temp');
-    temp.innerHTML = `${Math.round(weather.main.temp - 273.15 )}<span>°C</span>`;
+    let tempcur = document.querySelector('.current .temp');
+    tempcur.innerHTML = `${Math.round(weather.main.temp - 273.15 )}<span>°C</span>`;
 }
 //time
 function checkTime(i) {
