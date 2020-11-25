@@ -71,8 +71,6 @@ function displayResults(weather) {
     }else if(main == "Thunderstorm" ){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/storm.jpg')";
     }else if(main == "Drizzle" || main == "Mist" || main == "Smoke" || main == "Haze" || main == "Dust" || main == "Fog" || main == "Sand" || main == "Dust" || main == "Ash" || main == "Squall"){
-        document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/fogday.jpg')";
-    }else if(main == "Drizzle" || main == "Mist" || main == "Smoke" || main == "Haze" || main == "Dust" || main == "Fog" || main == "Sand" || main == "Dust" || main == "Ash" || main == "Squall" && nd == "n"){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/fognight.jpg')";
     }else if(main == "Tornado" ){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/tornado.jpg')";
