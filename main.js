@@ -68,11 +68,11 @@ function displayResults(weather) {
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/snowday.jpg')";
     }else if((main == "Snow" || temp < 0 && nd == "n") || temp < 0 && nd == "n"){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/snownight.jpg')";
-    }else if(main == "Thunderstorm" ){
+    }else if(main == "Thunderstorm"){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/storm.jpg')";
     }else if(main == "Drizzle" || main == "Mist" || main == "Smoke" || main == "Haze" || main == "Dust" || main == "Fog" || main == "Sand" || main == "Dust" || main == "Ash" || main == "Squall"){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/fognight.jpg')";
-    }else if(main == "Tornado" ){
+    }else if(main == "Tornado"){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/tornado.jpg')";
     }else{
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/mountain.jpg')";
