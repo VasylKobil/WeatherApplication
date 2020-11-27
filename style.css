@@ -56,15 +56,10 @@ main {
 
 main .bg {
     position: fixed;
-    display: block;
     top: 0;
-    left: 0;
     width: 100vw;
     height: 100vh;
-    background-size: 100% 100%;
-    background-position: center center;
-    transform: translateZ(0);
-    will-change: transform;
+    background-size: 100vw 100vh;
     z-index: -1;
 }
 

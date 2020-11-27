@@ -54,6 +54,8 @@ function displayResults(weather) {
     let nd = weather.weather[0].icon.slice(-1);
     if(main == "Rain" && nd == "n"){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/rain.jpg')";
+    }else if(main == "Drizzle" || main == "Mist" || main == "Smoke" || main == "Haze" || main == "Dust" || main == "Fog" || main == "Sand" || main == "Dust" || main == "Ash" || main == "Squall"){
+        document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/fognight.jpg')";
     }else if(main == "Rain" && temp > 0){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/rainnight.jpg')";
     }else if(main == "Clear" && nd == "n" && temp > 0){
@@ -64,19 +66,17 @@ function displayResults(weather) {
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/cloudsnight.jpg')";
     }else if(main == "Clouds" && temp > 0){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/clouds.jpg')";
-    }else if((main == "Snow" || temp < 0) || temp < 0){
+    }else if((main == "Snow" && nd == "d") || (nd == "d" && temp < 0)){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/snowday.jpg')";
-    }else if((main == "Snow" || temp < 0 && nd == "n") || temp < 0 && nd == "n"){
+    }else if((main == "Snow" && nd == "n") || (nd == "n" && temp < 0)){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/snownight.jpg')";
     }else if(main == "Thunderstorm"){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/storm.jpg')";
-    }else if(main == "Drizzle" || main == "Mist" || main == "Smoke" || main == "Haze" || main == "Dust" || main == "Fog" || main == "Sand" || main == "Dust" || main == "Ash" || main == "Squall"){
-        document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/fognight.jpg')";
     }else if(main == "Tornado"){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/tornado.jpg')";
     }else{
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/mountain.jpg')";
-    }
+    };
 
     let city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
