@@ -76,6 +76,11 @@ main .bg {
     font-size: 20px;
     margin-bottom: 20px;
 }
+.location .local_time {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
 .textNoLocation {
     color: red;
     font-size: 15px;
@@ -284,4 +289,76 @@ main .bg {
     font-size: 25px;
 }
 
+/*compas*/
+.additionalInf .content .cont_second .compass {
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    background-color: white;
+    position: relative;
+}
+
+.additionalInf .content .cont_second .compass .direction {
+    color: white;
+    left: 30px;
+    font-size: 25px;
+    position: absolute;
+}
+
+.additionalInf .content .cont_second .compass .arrow {
+    width: 28px;
+    height: 26px;
+    left: calc(50% - 14px);
+    top: calc(50% - 13px);
+    display: block;
+    position: absolute;
+    content: url(./assets/backgroundImg/arrow.png);
+}
+
+.compass .arrow.nne {
+    transform: rotate(22.5deg);
+}
+.compass .arrow.ne {
+    transform: rotate(45deg);
+}
+.compass .arrow.ene {
+    transform: rotate(67.5deg);
+}
+.compass .arrow.e {
+    transform: rotate(90deg);
+}
+.compass .arrow.ese {
+    transform: rotate(112.5deg);
+}
+.compass .arrow.se {
+    transform: rotate(135deg);
+}
+.compass .arrow.sse {
+    transform: rotate(157.5deg);
+}
+.compass .arrow.s {
+    transform: rotate(180deg);
+}
+.compass .arrow.ssw {
+    transform: rotate(202.5deg);
+}
+.compass .arrow.sw {
+    transform: rotate(-135deg);
+}
+.compass .arrow.wsw {
+    transform: rotate(-114.5deg);
+}
+.compass .arrow.w {
+    transform: rotate(-90deg);
+}
+.compass .arrow.wnw {
+    transform: rotate(-69.5deg);
+}
+.compass .arrow.nw {
+    transform: rotate(-45deg);
+}
+.compass .arrow.nnw {
+    transform: rotate(-24.5deg);
+}
 

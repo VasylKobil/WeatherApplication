@@ -24,8 +24,7 @@
             <div class="textNoLocation"></div>
             <div class="city">--</div>
             <div class="date">--</div>
-            <div id="time">--</div>
-
+            <div class="local_time">--</div>
         </section>
         <div class="current">
             <div class="icon">
@@ -446,14 +445,17 @@
                     <div  class="wind_speed">--</div>
                 </div>
                 <div class="cont_second">
-                    <div class="feels">FEELS LIKE</div>
-                    <div id='feels_like' class="feels_like">--</div>
+                    <div class="wind">WIND DIRECTION</div>
+                    <div class="compass">
+                        <div class="direction">--</div>
+                        <div id="arrow" class="arrow"></div>
+                    </div>
                 </div>
             </div>
             <div class="content">
                 <div class="cont_first">
-                    <div class="humidity">HUMIDITY</div>
-                    <div class="value_hum">--</div>
+                    <div class="feels">FEELS LIKE</div>
+                    <div id='feels_like' class="feels_like">--</div>
                 </div>
                 <div class="cont_second">
                     <div class="pressure">PRESSURE</div>
@@ -466,13 +468,24 @@
                     <div class="value_visi">--</div>
                 </div>
                 <div class="cont_second">
+                    <div class="clouds">CLOUDINESS</div>
+                    <div class="value_clouds">--</div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="cont_first">
+                    <div class="humidity">HUMIDITY</div>
+                    <div class="value_hum">--</div>
+                </div>
+                <div class="cont_second">
                     <div class="index_uv">UV INDEX</div>
                     <div class="value_index">--</div>
                 </div>
             </div>
         </div>
     </footer>
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="forecast.js"></script>
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcFRcq3f4eDvT1MNvgqrPbLQjA_JGoMH4&libraries=places&callback=activatePlacesSearch"></script>
 </body>
 </html>
