@@ -81,7 +81,7 @@ function displayResults(weather) {
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/tornado.jpg')";
     }else{
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/mountain.jpg')";
-    };
+    }
 
     // convert time
     calcTime();
@@ -91,7 +91,8 @@ function displayResults(weather) {
         let d = new Date();
         let utc = d.getTime() + (d.getTimezoneOffset() * 60000);
         let nd = new Date(utc + (3600000 * offset));
-        document.querySelector('.location .date').innerText = nd.toLocaleString('en-US', {dateStyle: 'full'});
+        const option = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+        document.querySelector('.location .date').innerText = nd.toLocaleDateString('en-US', option);
         document.querySelector('.location .local_time').innerText = nd.toLocaleTimeString('en-US');
 
         if (timerId) {
@@ -115,25 +116,13 @@ function checkTime(i) {
     }
     return i;
 }
-//date
-function dateBuilder(event) {
-    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-    let day = days[event.getDay()];
-    let date = event.getDate();
-    let month = months[event.getMonth()];
-    let year = event.getFullYear();
-
-    return `${day} ${date} ${month} ${year} `;
-}
 
 // Search places autocomplete
 function activatePlacesSearch() {
      const input = document.getElementById('mainput');
      const autoComplete = new google.maps.places.Autocomplete(input);
      google.maps.event.addListener(autoComplete, 'place_changed', onPlaceChanged.bind(this, autoComplete));
-};
+}
 window.activatePlacesSearch = activatePlacesSearch;
 
 function onPlaceChanged(autoComplete){
