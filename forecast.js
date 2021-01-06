@@ -10,11 +10,8 @@ export function getWeatherDaily(latitude, longitude) {
 //convert alltime a Unix timestamp
 function convertAllTime(event){
     let date = new Date(event * 1000);
-    let convertHour = date.getHours();
-    let convertMin = date.getMinutes();
-    convertHour = checkTime(convertHour);
-    convertMin = checkTime(convertMin);
-    return `${convertHour}:${convertMin}`;
+    let time = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    return `${time}`;
 }
 
 function displayResultsDaily(weather) {
@@ -24,8 +21,8 @@ function displayResultsDaily(weather) {
         let d = new Date(event * 1000);
         let utc = d.getTime() + (d.getTimezoneOffset() * 60000);
         let nd = new Date(utc + (3600000 * offset));
-        let newhour = nd.toLocaleString('en-US', { hour: 'numeric', hour12: true });
-        return `${newhour}`;
+        let newHour = nd.toLocaleString('en-US', { hour: 'numeric', hour12: true });
+        return `${newHour}`;
     }
     //Function for days Forecast
     function convertDay(event){
