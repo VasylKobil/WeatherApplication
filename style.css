@@ -90,8 +90,19 @@ main .bg {
     font-size: 75px;
     font-weight: 700;
     margin-bottom: 20px;
-    margin-top: 40px;
+    margin-top: 30px;
     text-shadow: 3px 4px rgba(0,0,0,0.9);
+}
+.current .m_temp{
+    display: inline-flex;
+}
+.current .temp_max, .current .temp_min {
+    color: white;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+.current .temp_min{
+    margin-left: 8px;
 }
 .current .weather {
     color: white;

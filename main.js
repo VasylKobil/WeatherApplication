@@ -108,6 +108,10 @@ function displayResults(weather) {
     document.querySelector('.current .weather').innerText = weather.weather[0].main;
 
     document.querySelector('.current .temp').innerHTML = `${Math.round(weather.main.temp - 273.15 )}<span>°C</span>`;
+
+    document.querySelector('.current .m_temp .temp_max').innerHTML = `H: ${Math.round(weather.main.temp_max - 273.15 )}<span>°c</span>`;
+
+    document.querySelector('.current .m_temp .temp_min').innerHTML = `L: ${Math.round(weather.main.temp_min - 273.15 )}<span>°c</span>`;
 }
 //time
 function checkTime(i) {
