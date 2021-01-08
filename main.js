@@ -54,9 +54,9 @@ function getWeatherCurrent(latitude, longitude){
 
 
 function displayResults(weather) {
-    let main = weather.weather[0].main;
-    let temp = weather.main.temp - 273.15;
-    let nd = weather.weather[0].icon.slice(-1);
+    const main = weather.weather[0].main;
+    const temp = weather.main.temp - 273.15;
+    const nd = weather.weather[0].icon.slice(-1);
     if(main === "Rain" && nd === "n"){
         document.getElementById("bg").style.backgroundImage = "url('assets/backgroundImg/rain.jpg')";
     }else if(main === "Drizzle" || main === "Mist" || main === "Smoke" || main === "Haze" || main === "Dust" || main === "Fog" || main === "Sand" || main === "Dust" || main === "Ash" || main === "Squall"){
@@ -87,13 +87,13 @@ function displayResults(weather) {
     calcTime();
 
     function calcTime() {
-        let offset = weather.timezone / 60 / 60;
-        let d = new Date();
-        let utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-        let nd = new Date(utc + (3600000 * offset));
+        const offset = weather.timezone / 60 / 60;
+        const d = new Date();
+        const utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        const nd = new Date(utc + (3600000 * offset));
         const option = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
         document.querySelector('.location .date').innerText = nd.toLocaleDateString('en-US', option);
-        document.querySelector('.location .local_time').innerText = nd.toLocaleTimeString('en-US');
+        document.querySelector('.location .time').innerText = nd.toLocaleTimeString('en-US');
 
         if (timerId) {
             clearInterval(timerId);
@@ -112,13 +112,6 @@ function displayResults(weather) {
     document.querySelector('.current .m_temp .temp_max').innerHTML = `H: ${Math.round(weather.main.temp_max - 273.15 )}<span>°c</span>`;
 
     document.querySelector('.current .m_temp .temp_min').innerHTML = `L: ${Math.round(weather.main.temp_min - 273.15 )}<span>°c</span>`;
-}
-//time
-function checkTime(i) {
-    if (i < 10) {
-        i = "0" + i;
-    }
-    return i;
 }
 
 // Search places autocomplete
@@ -141,5 +134,4 @@ function onPlaceChanged(autoComplete){
     getWeatherDaily(latitude,longitude);
 }
 
-export {api, checkTime};
-
+export {api};
