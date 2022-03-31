@@ -10,7 +10,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    margin: 10px 0px;
+    margin: 10px 0;
     overflow: scroll;
 
 }
@@ -47,7 +47,7 @@ header input:focus {
 }
 main {
     flex: 1 1 100%;
-    padding: 15px 0px 0px;
+    padding: 15px 0 0;
     display: block;
     flex-direction: column;
     align-items: center;
@@ -130,17 +130,13 @@ main .bg {
 .forecast-container .forecast {
     display: table-cell;
     vertical-align: top; }
-@media screen and (max-width: 990px) {
-    .forecast-container {
-        display: flex;
-        flex-direction: row;
-        table-layout: fixed;
-        overflow-x: scroll;
-        overflow-y: hidden;
-    }
-    .additionalInf{
 
-    }
+.forecast-container {
+    display: flex;
+    flex-direction: row;
+    table-layout: fixed;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 .forecast-container .forecast.today {
     width: 420px; }
@@ -194,6 +190,9 @@ main .bg {
 .forecast-container .forecast .forecast-icon {
     height: 50px;
 }
+.forecast-container .forecast .forecast-icon img{
+    width: 38px;
+}
 .forecast-container .forecast .forecast-content {
     padding: 50px 20px 20px;
     text-align: center; }
@@ -246,6 +245,7 @@ main .bg {
 .forecast-days .days-header .body-two .icon img{
     position: absolute;
     text-align: center;
+    width: 38px;
 }
 .forecast-days .days-header .body-three {
     padding-right: 10px;
@@ -267,12 +267,12 @@ main .bg {
 /*Addition information*/
 
 .additionalInf {
-    width: 100vw;
+    width: auto;
     background: rgba(0, 0, 0, 0.5);
-    margin-top: 0px;
+    margin-top: 0;
 }
 .additionalInf .content {
-    padding: 0px 10px 0px 10px;
+    padding: 0 10px 0 10px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.4);
     display: flex;
     justify-content: space-between;
@@ -324,7 +324,7 @@ main .bg {
     top: calc(50% - 13px);
     display: block;
     position: absolute;
-    content: url(./assets/backgroundImg/arrow.png);
+    content: url(../../assets/backgroundImg/arrow.png);
 }
 
 .compass .arrow.nne {

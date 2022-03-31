@@ -5,16 +5,15 @@ const api = {
     base: "https://api.openweathermap.org/data/2.5/"
 }
 
-const searchbox = document.querySelector('.search-box');
-searchbox.addEventListener('keypress', setQuery);
+const searchBox = document.querySelector('.search-box');
+searchBox.addEventListener('keypress', setQuery);
 const notificationElement = document.querySelector('.textNoLocation');
 
 let timerId = null;
 
-//function if press Enter
 function setQuery(event) {
     if (event.keyCode === 13) {
-        getResults(searchbox.value);
+        getResults(searchBox.value);
     }
 }
 
@@ -40,7 +39,7 @@ function setPosition(position){
     getWeatherDaily(latitude,longitude);
 }
 
-function showError(error){
+function showError(){
     notificationElement.style.display = "block";
     notificationElement.innerHTML = "<p>User denied Geolocation</p><p>Please, add a Location...</p>";
 }
@@ -103,7 +102,7 @@ function displayResults(weather) {
 
     document.querySelector('.location .city').innerText = `${weather.name}, ${weather.sys.country}`;
 
-    document.querySelector('.icon').innerHTML = `<img src="assets/icons/${weather.weather[0].icon}.png"/>`;
+    document.querySelector('.icon').innerHTML = `<img src="assets/icons/${weather.weather[0].icon}.png" alt="Image whether"/>`;
 
     document.querySelector('.current .weather').innerText = weather.weather[0].main;
 
