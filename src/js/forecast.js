@@ -74,6 +74,16 @@ function displayResultsDaily(weather) {
         const result = days[convertDay];
         return `${result}`;
     }
+
+    function convertData(event){
+        const offset = weather.timezone_offset / 60 / 60;
+        const d = new Date(event * 1000);
+        const utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+        const nd = new Date(utc + (3600000 * offset));
+        let month = new Intl.DateTimeFormat('en', { month: 'short' }).format(nd);
+        let day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(nd);
+        return `${day}, ${month}`;
+    }
     function windDerection(degree){
         if(degree>=334 && degree <= 360){
             document.getElementById('arrow').classList.toggle('nnw');
@@ -159,7 +169,7 @@ function displayResultsDaily(weather) {
         if(index === 0) return;
         const icon = obj.weather[0].icon;
         const newElement = formDaily({
-            day: `${convertDay(obj.dt)}`,
+            day: `${convertDay(obj.dt)}, ${convertData(obj.dt)}`,
             src: `assets/icons/${icon}.png`,
             tempDay: `${Math.round(obj.temp.day)}`,
             tempNight: `${Math.round(obj.temp.night)}`
