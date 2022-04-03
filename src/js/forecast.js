@@ -141,6 +141,10 @@ function displayResultsDaily(weather) {
     }
 
     const forecastContainer = document.querySelector('.forecast-container');
+    const forecastDays = document.querySelector('.forecast-days');
+
+    forecastContainer.innerHTML = '';
+    forecastDays.innerHTML = '';
 
     weather?.hourly.forEach((obj, index) => {
         if(index > 24) return;
@@ -153,8 +157,6 @@ function displayResultsDaily(weather) {
         }
         forecastContainer.appendChild(readyRender.querySelector('.forecast'));
     })
-
-    const forecastDays = document.querySelector('.forecast-days');
 
     weather.daily.forEach((obj, index) => {
         if(index === 0 || index > 7) return;
